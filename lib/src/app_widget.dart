@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Heróis',
         theme: ThemeData(
+          brightness: Brightness.dark,
           primarySwatch: Colors.blue,
         ),
         routes: {

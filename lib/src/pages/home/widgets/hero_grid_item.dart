@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rd_heroes/src/models/heroes/hero_model.dart';
 import 'package:rd_heroes/src/utils/app_routes.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class HeroGridItem extends StatelessWidget {
   @override
@@ -20,16 +21,18 @@ class HeroGridItem extends StatelessWidget {
           },
           child: Hero(
             tag: hero.id,
-            child: FadeInImage(
-              placeholder: AssetImage(
-                  '../../../../../assets/images/product-placeholder.png'),
-              image: NetworkImage(hero.images.md),
-              fit: BoxFit.cover,
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+              child: FadeInImage.memoryNetwork(
+                placeholder: kTransparentImage,
+                image: hero.images.lg,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
         footer: GridTileBar(
-          backgroundColor: Colors.black87,
+          backgroundColor: Colors.black54,
           title: Text(
             hero.name,
             textAlign: TextAlign.center,
