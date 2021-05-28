@@ -52,7 +52,6 @@ class Heroes with ChangeNotifier {
       final data = json.decode(response.body);
 
       _heroes.clear();
-      print(response.body);
 
       if (data != null) {
         _heroes = data.map<Heroes>((json) => Heroes.fromJson(json)).toList();
@@ -62,6 +61,18 @@ class Heroes with ChangeNotifier {
     } else {
       print(response.statusCode);
     }
+  }
+
+  searchHeroes(String nameSearch) async {
+    await loadHeroes();
+    List<Heroes> heroesSearch = List.from(_heroes);
+    _heroes.clear();
+    heroesSearch.forEach((hero) {
+      if (hero.name.contains(nameSearch)) {
+        _heroes.add(hero);
+      }
+    });
+    notifyListeners();
   }
 
   factory Heroes.fromJson(Map<String, dynamic> json) {

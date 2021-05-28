@@ -29,15 +29,6 @@ class HeroGridItem extends StatelessWidget {
         ),
         footer: GridTileBar(
           backgroundColor: Colors.black87,
-          leading: Consumer<Heroes>(
-            builder: (ctx, hero, _) => IconButton(
-              onPressed: () {
-                // hero.toggleFavorite(auth.token, auth.userId);
-              },
-              color: Theme.of(context).accentColor,
-              icon: Icon(Icons.ac_unit),
-            ),
-          ),
           title: Text(
             hero.name,
             textAlign: TextAlign.center,

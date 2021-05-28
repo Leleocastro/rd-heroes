@@ -14,6 +14,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool _isLoading = true;
+  bool _isSearching = false;
+  TextEditingController searchController = TextEditingController();
 
   @override
   void initState() {
@@ -34,7 +36,53 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: _isSearching
+            ? Container(
+                color: Colors.white,
+                child: TextField(
+                  controller: searchController,
+                  decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      icon: Icon(Icons.close),
+                      onPressed: () {
+                        searchController.clear();
+                        _refreshHeroes(context);
+                        setState(() {
+                          _isSearching = !_isSearching;
+                        });
+                      },
+                    ),
+                    contentPadding: EdgeInsets.all(10),
+                    border: InputBorder.none,
+                    hintText: 'Pesquisar',
+                  ),
+                  onSubmitted: (value) {
+                    if (_isSearching) {
+                      Provider.of<Heroes>(context, listen: false)
+                          .searchHeroes(value);
+                    }
+                    setState(() {
+                      _isSearching = !_isSearching;
+                    });
+                  },
+                ),
+              )
+            : Text('Heróis'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {
+                Provider.of<Heroes>(context, listen: false)
+                    .searchHeroes(searchController.text);
+                setState(() {
+                  _isSearching = !_isSearching;
+                });
+              },
+            ),
+          ),
+        ],
       ),
       body: _isLoading
           ? Center(

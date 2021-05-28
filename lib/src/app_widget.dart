@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rd_heroes/src/pages/hero_detail_page.dart';
 import 'package:rd_heroes/src/pages/home/home_page.dart';
 import 'package:rd_heroes/src/utils/app_routes.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           AppRoutes.HOME: (ctx) => HomePage(title: 'Heróis'),
+          AppRoutes.HERO_DETAIL: (ctx) => HeroDetailPage(),
         },
       ),
     );
