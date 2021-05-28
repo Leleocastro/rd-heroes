@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:rd_heroes/src/utils/constants.dart';
@@ -73,6 +74,25 @@ class Heroes with ChangeNotifier {
       }
     });
     notifyListeners();
+  }
+
+  searchByGenderHeroes(String nameSearch) async {
+    await loadHeroes();
+    if (nameSearch != '') {
+      List<Heroes> heroesSearch = List.from(_heroes);
+      _heroes.clear();
+      heroesSearch.forEach((hero) {
+        if (hero.appearance.gender == nameSearch) {
+          _heroes.add(hero);
+        }
+      });
+    }
+    notifyListeners();
+  }
+
+  randomHero() {
+    int randomIndex = Random().nextInt(_heroes.length);
+    return _heroes[randomIndex];
   }
 
   bool alphabeticOrderBy(bool isAscending) {

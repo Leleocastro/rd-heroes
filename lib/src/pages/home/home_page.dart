@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rd_heroes/src/models/heroes/hero_model.dart';
 import 'package:rd_heroes/src/pages/home/widgets/hero_grid.dart';
+import 'package:rd_heroes/src/utils/app_routes.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -94,18 +95,46 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                Provider.of<Heroes>(context, listen: false)
-                    .searchHeroes(searchController.text);
-                setState(() {
-                  _isSearching = !_isSearching;
-                });
-              },
-            ),
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              Provider.of<Heroes>(context, listen: false)
+                  .searchHeroes(searchController.text);
+              setState(() {
+                _isSearching = !_isSearching;
+              });
+            },
+          ),
+          PopupMenuButton(
+            itemBuilder: (ctx) => [
+              PopupMenuItem(
+                child: TextButton(
+                  child: Text('Male'),
+                  onPressed: () {
+                    Provider.of<Heroes>(context, listen: false)
+                        .searchByGenderHeroes('Male');
+                  },
+                ),
+              ),
+              PopupMenuItem(
+                child: TextButton(
+                  child: Text('Female'),
+                  onPressed: () {
+                    Provider.of<Heroes>(context, listen: false)
+                        .searchByGenderHeroes('Female');
+                  },
+                ),
+              ),
+              PopupMenuItem(
+                child: TextButton(
+                  child: Text('All'),
+                  onPressed: () {
+                    Provider.of<Heroes>(context, listen: false)
+                        .searchByGenderHeroes('');
+                  },
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -117,6 +146,17 @@ class _HomePageState extends State<HomePage> {
               onRefresh: () => _refreshHeroes(context),
               child: HeroGrid(),
             ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.compare_arrows,
+        ),
+        onPressed: () {
+          Navigator.of(context).pushNamed(
+            AppRoutes.HERO_DETAIL,
+            arguments: Provider.of<Heroes>(context, listen: false).randomHero(),
+          );
+        },
+      ),
     );
   }
 }
