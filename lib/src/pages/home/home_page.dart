@@ -15,6 +15,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool _isLoading = true;
   bool _isSearching = false;
+  bool _isAscending = true;
+  bool _isAscUsed = false;
   TextEditingController searchController = TextEditingController();
 
   @override
@@ -69,6 +71,29 @@ class _HomePageState extends State<HomePage> {
               )
             : Text('Heróis'),
         actions: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              _isAscUsed
+                  ? Text(
+                      _isAscending ? '↑' : '↓',
+                      textAlign: TextAlign.end,
+                    )
+                  : Text(''),
+              IconButton(
+                alignment: Alignment.centerLeft,
+                iconSize: _isAscUsed ? 15 : 20,
+                icon: Icon(Icons.filter_alt),
+                onPressed: () {
+                  setState(() {
+                    _isAscending = Provider.of<Heroes>(context, listen: false)
+                        .alphabeticOrderBy(_isAscending);
+                    _isAscUsed = true;
+                  });
+                },
+              ),
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
             child: IconButton(

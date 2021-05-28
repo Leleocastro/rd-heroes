@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:rd_heroes/src/utils/constants.dart';
 
-import 'description/appearence.dart';
+import 'description/appearance.dart';
 import 'description/biography.dart';
 import 'description/connections.dart';
 import 'description/images.dart';
@@ -16,7 +16,7 @@ class Heroes with ChangeNotifier {
   final String name;
   final String slug;
   final PowerStats powerStats;
-  final Appearence appearence;
+  final Appearance appearance;
   final Biography biography;
   final Work work;
   final Connections connections;
@@ -27,7 +27,7 @@ class Heroes with ChangeNotifier {
     this.name,
     this.slug,
     this.powerStats,
-    this.appearence,
+    this.appearance,
     this.biography,
     this.work,
     this.connections,
@@ -75,16 +75,70 @@ class Heroes with ChangeNotifier {
     notifyListeners();
   }
 
+  bool alphabeticOrderBy(bool isAscending) {
+    if (isAscending) {
+      _heroes.sort((a, b) {
+        var aName = a.name;
+        var bName = b.name;
+        return aName.compareTo(bName);
+      });
+      notifyListeners();
+      return false;
+    } else {
+      _heroes.sort((a, b) {
+        var aName = a.name;
+        var bName = b.name;
+        return -aName.compareTo(bName);
+      });
+      notifyListeners();
+      return true;
+    }
+  }
+
   factory Heroes.fromJson(Map<String, dynamic> json) {
     return Heroes(
-        id: json['id'],
-        name: json['name'],
-        slug: json['slug'],
-        images: Images(
-          xs: json['images']['xs'],
-          sm: json['images']['sm'],
-          md: json['images']['md'],
-          lg: json['images']['lg'],
-        ));
+      id: json['id'],
+      name: json['name'],
+      slug: json['slug'],
+      images: Images(
+        xs: json['images']['xs'],
+        sm: json['images']['sm'],
+        md: json['images']['md'],
+        lg: json['images']['lg'],
+      ),
+      powerStats: PowerStats(
+        combat: json['powerstats']['combat'],
+        durability: json['powerstats']['durability'],
+        intelligence: json['powerstats']['intelligence'],
+        power: json['powerstats']['power'],
+        speed: json['powerstats']['speed'],
+        strength: json['powerstats']['strength'],
+      ),
+      appearance: Appearance(
+        eyeColor: json['appearance']['eyeColor'],
+        gender: json['appearance']['gender'],
+        hairColor: json['appearance']['hairColor'],
+        height: json['appearance']['height'],
+        race: json['appearance']['race'],
+        weight: json['appearance']['weight'],
+      ),
+      biography: Biography(
+        aliases: json['biography']['aliases'],
+        alignment: json['biography']['alignment'],
+        alterEgos: json['biography']['alterEgos'],
+        firstAppearance: json['biography']['firstAppearance'],
+        fullName: json['biography']['fullName'],
+        placeOfBirth: json['biography']['placeOfBirth'],
+        publisher: json['biography']['publisher'],
+      ),
+      connections: Connections(
+        groupAffiliation: json['connections']['groupAffiliation'],
+        relatives: json['connections']['relatives'],
+      ),
+      work: Work(
+        base: json['work']['base'],
+        occupation: json['work']['occupation'],
+      ),
+    );
   }
 }

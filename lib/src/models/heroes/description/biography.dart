@@ -1,7 +1,7 @@
 class Biography {
   final String fullName;
   final String alterEgos;
-  final List<String> aliases;
+  final List<dynamic> aliases;
   final String placeOfBirth;
   final String firstAppearance;
   final String publisher;

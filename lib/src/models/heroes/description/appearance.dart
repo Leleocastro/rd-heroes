@@ -1,12 +1,12 @@
-class Appearence {
+class Appearance {
   final String gender;
   final String race;
-  final List<String> height;
-  final List<String> weight;
+  final List<dynamic> height;
+  final List<dynamic> weight;
   final String eyeColor;
   final String hairColor;
 
-  Appearence({
+  Appearance({
     this.gender,
     this.race,
     this.height,

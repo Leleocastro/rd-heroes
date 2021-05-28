@@ -21,7 +21,8 @@ class HeroGridItem extends StatelessWidget {
           child: Hero(
             tag: hero.id,
             child: FadeInImage(
-              placeholder: AssetImage('assets/images/product-placeholder.png'),
+              placeholder: AssetImage(
+                  '../../../../../assets/images/product-placeholder.png'),
               image: NetworkImage(hero.images.md),
               fit: BoxFit.cover,
             ),

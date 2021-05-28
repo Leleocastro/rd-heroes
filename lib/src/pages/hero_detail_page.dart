@@ -4,23 +4,23 @@ import 'package:rd_heroes/src/models/heroes/hero_model.dart';
 class HeroDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Heroes heroes = ModalRoute.of(context).settings.arguments as Heroes;
+    final Heroes hero = ModalRoute.of(context).settings.arguments as Heroes;
 
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            expandedHeight: 300,
+            expandedHeight: 600,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(heroes.name),
+              title: Text(hero.name),
               background: Stack(
                 fit: StackFit.expand,
                 children: [
                   Hero(
-                    tag: heroes.id,
+                    tag: hero.id,
                     child: Image.network(
-                      heroes.images.lg,
+                      hero.images.lg,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -45,14 +45,54 @@ class HeroDetailPage extends StatelessWidget {
               [
                 SizedBox(height: 10),
                 Text(
-                  'R\$ ${heroes.slug}',
+                  hero.slug == null ? '' : hero.slug,
                   style: TextStyle(
                     color: Colors.grey,
                     fontSize: 20,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 1000),
+                SizedBox(height: 20),
+                Text(
+                  hero.appearance.gender == null ? '' : hero.appearance.gender,
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 20,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 20),
+                Text(
+                  hero.appearance.height[1] == null
+                      ? ''
+                      : hero.appearance.height[1],
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 20,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 20),
+                Text(
+                  hero.appearance.weight[1] == null
+                      ? ''
+                      : hero.appearance.weight[1],
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 20,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 20),
+                Text(
+                  hero.appearance.race == null ? '' : hero.appearance.race,
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 20,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 20),
               ],
             ),
           )
