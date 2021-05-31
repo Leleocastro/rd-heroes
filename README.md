@@ -11,7 +11,7 @@ Segue link do deploy realizado para o GitHub Pages:
 
 Segue abaixo alguns prints:
 
-![image](https://user-images.githubusercontent.com/24722339/120244660-399a2c00-c241-11eb-93a2-1d2743d3d455.png)
-![image](https://user-images.githubusercontent.com/24722339/120244677-43bc2a80-c241-11eb-813a-1a6d24c3e931.png)
-![image](https://user-images.githubusercontent.com/24722339/120244686-4ae33880-c241-11eb-8693-85e65be40832.png)
-![image](https://user-images.githubusercontent.com/24722339/120244690-4fa7ec80-c241-11eb-8b76-7640cfc301ab.png)
+![image](https://user-images.githubusercontent.com/24722339/120244796-90076a80-c241-11eb-8271-a2625ae79df3.png)
+![image](https://user-images.githubusercontent.com/24722339/120244812-9c8bc300-c241-11eb-8837-0268ba0cd793.png)
+![image](https://user-images.githubusercontent.com/24722339/120244822-a3b2d100-c241-11eb-82bc-6af233f58328.png)
+![image](https://user-images.githubusercontent.com/24722339/120244824-a7deee80-c241-11eb-93d5-5e56cfb200f3.png)
