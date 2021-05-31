@@ -13,6 +13,7 @@ class TabViewConnections extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
+              padding: EdgeInsets.only(right: 10),
               width: MediaQuery.of(context).size.width / 2 - 15,
               alignment: Alignment.center,
               child: Column(

@@ -80,10 +80,14 @@ class _HomePageState extends State<HomePage> {
                       _isAscending ? '↑' : '↓',
                       textAlign: TextAlign.end,
                     )
-                  : Text(''),
+                  : Text(
+                      'az',
+                      textAlign: TextAlign.end,
+                      style: TextStyle(fontSize: 10),
+                    ),
               IconButton(
                 alignment: Alignment.centerLeft,
-                iconSize: _isAscUsed ? 15 : 20,
+                iconSize: 20,
                 icon: Icon(Icons.filter_alt),
                 onPressed: () {
                   setState(() {
@@ -149,9 +153,11 @@ class _HomePageState extends State<HomePage> {
             ),
       floatingActionButton: FloatingActionButton(
         child: Icon(
-          Icons.compare_arrows,
+          Icons.all_inclusive,
         ),
-        onPressed: () {
+        onPressed: () async {
+          await _refreshHeroes(context);
+          searchController.clear();
           Navigator.of(context).pushNamed(
             AppRoutes.HERO_DETAIL,
             arguments: Provider.of<HeroesController>(context, listen: false)
