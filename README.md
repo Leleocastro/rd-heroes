@@ -4,7 +4,7 @@ Um projeto para o Processo Seletivo da RaiaDrogasil
 
 ## Iniciando
 
-Atentar-se para as dependências no [pubspec.yaml](https://github.com/Leleocastro/rd-heroes/blob/master/pubspec.yaml).
+Para inicializar o projeto atentar-se para as dependências no [pubspec.yaml](https://github.com/Leleocastro/rd-heroes/blob/master/pubspec.yaml).
 
 Segue link do deploy realizado para o GitHub Pages:
 
