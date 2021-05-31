@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rd_heroes/src/models/heroes/hero_model.dart';
+import 'package:rd_heroes/src/controllers/hero_controller.dart';
 import 'package:rd_heroes/src/pages/home/widgets/hero_grid.dart';
 import 'package:rd_heroes/src/utils/app_routes.dart';
 
@@ -24,7 +24,9 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     // carregar os produtos
-    Provider.of<Heroes>(context, listen: false).loadHeroes().then((_) {
+    Provider.of<HeroesController>(context, listen: false)
+        .loadHeroes()
+        .then((_) {
       setState(() {
         _isLoading = false;
       });
@@ -32,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _refreshHeroes(BuildContext context) {
-    return Provider.of<Heroes>(context, listen: false).loadHeroes();
+    return Provider.of<HeroesController>(context, listen: false).loadHeroes();
   }
 
   @override
@@ -41,7 +43,6 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: _isSearching
             ? Container(
-                color: Colors.white,
                 child: TextField(
                   controller: searchController,
                   decoration: InputDecoration(
@@ -61,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   onSubmitted: (value) {
                     if (_isSearching) {
-                      Provider.of<Heroes>(context, listen: false)
+                      Provider.of<HeroesController>(context, listen: false)
                           .searchHeroes(value);
                     }
                     setState(() {
@@ -87,8 +88,9 @@ class _HomePageState extends State<HomePage> {
                 icon: Icon(Icons.filter_alt),
                 onPressed: () {
                   setState(() {
-                    _isAscending = Provider.of<Heroes>(context, listen: false)
-                        .alphabeticOrderBy(_isAscending);
+                    _isAscending =
+                        Provider.of<HeroesController>(context, listen: false)
+                            .alphabeticOrderBy(_isAscending);
                     _isAscUsed = true;
                   });
                 },
@@ -98,7 +100,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
-              Provider.of<Heroes>(context, listen: false)
+              Provider.of<HeroesController>(context, listen: false)
                   .searchHeroes(searchController.text);
               setState(() {
                 _isSearching = !_isSearching;
@@ -111,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                 child: TextButton(
                   child: Text('Male'),
                   onPressed: () {
-                    Provider.of<Heroes>(context, listen: false)
+                    Provider.of<HeroesController>(context, listen: false)
                         .searchByGenderHeroes('Male');
                   },
                 ),
@@ -120,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                 child: TextButton(
                   child: Text('Female'),
                   onPressed: () {
-                    Provider.of<Heroes>(context, listen: false)
+                    Provider.of<HeroesController>(context, listen: false)
                         .searchByGenderHeroes('Female');
                   },
                 ),
@@ -129,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                 child: TextButton(
                   child: Text('All'),
                   onPressed: () {
-                    Provider.of<Heroes>(context, listen: false)
+                    Provider.of<HeroesController>(context, listen: false)
                         .searchByGenderHeroes('');
                   },
                 ),
@@ -153,7 +155,8 @@ class _HomePageState extends State<HomePage> {
         onPressed: () {
           Navigator.of(context).pushNamed(
             AppRoutes.HERO_DETAIL,
-            arguments: Provider.of<Heroes>(context, listen: false).randomHero(),
+            arguments: Provider.of<HeroesController>(context, listen: false)
+                .randomHero(),
           );
         },
       ),

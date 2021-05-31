@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rd_heroes/src/models/heroes/hero_model.dart';
+import 'package:rd_heroes/src/controllers/hero_controller.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import 'hero_grid_item.dart';
@@ -8,7 +8,7 @@ import 'hero_grid_item.dart';
 class HeroGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final heroesProvider = Provider.of<Heroes>(context);
+    final heroesProvider = Provider.of<HeroesController>(context);
     final heroes = heroesProvider.heroes;
     return StaggeredGridView.countBuilder(
         crossAxisCount: 2,

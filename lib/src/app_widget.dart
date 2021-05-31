@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rd_heroes/src/pages/hero_detail_page.dart';
+import 'package:rd_heroes/src/pages/hero/hero_detail_page.dart';
 import 'package:rd_heroes/src/pages/home/home_page.dart';
 import 'package:rd_heroes/src/utils/app_routes.dart';
 
-import 'models/heroes/hero_model.dart';
+import 'controllers/hero_controller.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => new Heroes(),
+          create: (_) => new HeroesController(),
         ),
       ],
       child: MaterialApp(
@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
         title: 'Heróis',
         theme: ThemeData(
           brightness: Brightness.dark,
-          primarySwatch: Colors.blue,
         ),
         routes: {
           AppRoutes.HOME: (ctx) => HomePage(title: 'Heróis'),
