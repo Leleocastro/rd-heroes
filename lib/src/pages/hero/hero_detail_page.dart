@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rd_heroes/src/models/heroes/hero_model.dart';
 import 'package:rd_heroes/src/pages/hero/widgets/tab_views/tab_view_biography.dart';
 import 'package:rd_heroes/src/pages/hero/widgets/tab_views/tab_view_connections.dart';
-import 'package:rd_heroes/src/pages/hero/widgets/tab_views/tab_view_powerstats.dart';
+import 'package:rd_heroes/src/pages/hero/widgets/tab_views/tab_view_powerstats/tab_view_powerstats.dart';
 import 'package:rd_heroes/src/pages/hero/widgets/tab_views/tab_view_work.dart';
 
 import 'widgets/tab_item.dart';
@@ -85,7 +85,7 @@ class _HeroDetailPageState extends State<HeroDetailPage> {
                         ),
                       ),
                       Container(
-                        height: MediaQuery.of(context).size.height - 140,
+                        height: MediaQuery.of(context).size.height - 130,
                         decoration: BoxDecoration(
                           border: Border(
                             top: BorderSide(color: Colors.grey, width: 0.5),

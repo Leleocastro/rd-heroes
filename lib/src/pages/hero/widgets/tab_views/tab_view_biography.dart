@@ -34,6 +34,7 @@ class TabViewBiography extends StatelessWidget {
                           : hero.biography.fullName,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -53,6 +54,7 @@ class TabViewBiography extends StatelessWidget {
                           : hero.biography.firstAppearance,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -72,6 +74,7 @@ class TabViewBiography extends StatelessWidget {
                           : hero.biography.placeOfBirth,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -91,6 +94,7 @@ class TabViewBiography extends StatelessWidget {
                           : hero.biography.alignment,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -119,6 +123,7 @@ class TabViewBiography extends StatelessWidget {
                           : hero.biography.alterEgos,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -138,6 +143,7 @@ class TabViewBiography extends StatelessWidget {
                           : hero.biography.publisher,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -170,6 +176,7 @@ class TabViewBiography extends StatelessWidget {
             text: listAliases[i],
             style: TextStyle(
               fontSize: 20,
+              color: Colors.white,
             ),
           ),
         );

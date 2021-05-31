@@ -34,6 +34,7 @@ class TabViewConnections extends StatelessWidget {
                           : hero.connections.groupAffiliation,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -62,6 +63,7 @@ class TabViewConnections extends StatelessWidget {
                           : hero.connections.relatives,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),

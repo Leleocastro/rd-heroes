@@ -19,15 +19,46 @@ class HeroGridItem extends StatelessWidget {
               arguments: hero,
             );
           },
-          child: Hero(
-            tag: hero.id,
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-              child: FadeInImage.memoryNetwork(
-                placeholder: kTransparentImage,
-                image: hero.images.lg,
-                fit: BoxFit.cover,
-              ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                Hero(
+                  tag: hero.id,
+                  child: FadeInImage.memoryNetwork(
+                    placeholder: kTransparentImage,
+                    image: hero.images.sm,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color.fromRGBO(0, 0, 0, 0.7),
+                        Color.fromRGBO(0, 0, 0, 0),
+                      ],
+                      begin: Alignment(0.7, 0.3),
+                      end: Alignment(0, 0),
+                    ),
+                  ),
+                  padding: EdgeInsets.only(bottom: 50, right: 5),
+                  alignment: Alignment.bottomRight,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text('Int: ${hero.powerStats.intelligence}'),
+                      Text('Str: ${hero.powerStats.strength}'),
+                      Text('Spd: ${hero.powerStats.speed}'),
+                      Text('Dur: ${hero.powerStats.durability}'),
+                      Text('Pow: ${hero.powerStats.power}'),
+                      Text('Com: ${hero.powerStats.combat}'),
+                    ],
+                  ),
+                )
+              ],
             ),
           ),
         ),

@@ -23,7 +23,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    // carregar os produtos
     Provider.of<HeroesController>(context, listen: false)
         .loadHeroes()
         .then((_) {
@@ -71,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               )
-            : Text('Heróis'),
+            : Text('Heroes'),
         actions: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -18,7 +18,10 @@ class TabItem extends StatelessWidget {
             softWrap: false,
             text: TextSpan(
               text: item,
-              style: TextStyle(fontSize: 12),
+              style: TextStyle(
+                fontSize: 12,
+                color: Colors.white,
+              ),
             ),
           ),
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rd_heroes/src/models/heroes/hero_model.dart';
-import 'package:rd_heroes/src/pages/hero/widgets/chart_bar_widget.dart';
+import 'package:rd_heroes/src/pages/hero/widgets/tab_views/tab_view_powerstats/chart_bar_widget.dart';
 
 class TabViewPowerstats extends StatelessWidget {
   final Heroes hero;
@@ -12,7 +12,7 @@ class TabViewPowerstats extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ChartBarWidget(
               hero.powerStats.intelligence,

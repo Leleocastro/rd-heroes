@@ -8,7 +8,7 @@ class ChartBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           text,
@@ -20,6 +20,7 @@ class ChartBarWidget extends StatelessWidget {
         ),
         SizedBox(height: 5),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               alignment: Alignment.centerLeft,

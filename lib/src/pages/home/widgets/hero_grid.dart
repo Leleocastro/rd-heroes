@@ -5,13 +5,34 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import 'hero_grid_item.dart';
 
-class HeroGrid extends StatelessWidget {
+class HeroGrid extends StatefulWidget {
+  @override
+  _HeroGridState createState() => _HeroGridState();
+}
+
+class _HeroGridState extends State<HeroGrid> {
   @override
   Widget build(BuildContext context) {
     final heroesProvider = Provider.of<HeroesController>(context);
     final heroes = heroesProvider.heroes;
+    final sizeScreen = MediaQuery.of(context).size.width;
+    int size;
+
+    if (sizeScreen < 800) {
+      setState(() {
+        size = 2;
+      });
+    } else if (sizeScreen < 1000) {
+      setState(() {
+        size = 3;
+      });
+    } else {
+      setState(() {
+        size = 5;
+      });
+    }
     return StaggeredGridView.countBuilder(
-        crossAxisCount: 2,
+        crossAxisCount: size,
         crossAxisSpacing: 10,
         mainAxisSpacing: 12,
         padding: const EdgeInsets.all(10),

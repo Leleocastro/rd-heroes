@@ -17,12 +17,12 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Heróis',
+        title: 'Heroes',
         theme: ThemeData(
           brightness: Brightness.dark,
         ),
         routes: {
-          AppRoutes.HOME: (ctx) => HomePage(title: 'Heróis'),
+          AppRoutes.HOME: (ctx) => HomePage(title: 'Heroes'),
           AppRoutes.HERO_DETAIL: (ctx) => HeroDetailPage(),
         },
       ),

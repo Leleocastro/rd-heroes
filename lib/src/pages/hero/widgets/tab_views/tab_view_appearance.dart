@@ -34,6 +34,7 @@ class TabViewAppearance extends StatelessWidget {
                           : hero.appearance.gender,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -53,6 +54,7 @@ class TabViewAppearance extends StatelessWidget {
                           : hero.appearance.weight[1],
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -72,6 +74,7 @@ class TabViewAppearance extends StatelessWidget {
                           : hero.appearance.hairColor,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -100,6 +103,7 @@ class TabViewAppearance extends StatelessWidget {
                           : hero.appearance.race,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -119,6 +123,7 @@ class TabViewAppearance extends StatelessWidget {
                           : hero.appearance.height[1],
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -138,6 +143,7 @@ class TabViewAppearance extends StatelessWidget {
                           : hero.appearance.eyeColor,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),

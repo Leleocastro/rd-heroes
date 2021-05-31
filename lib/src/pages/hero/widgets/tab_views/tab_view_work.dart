@@ -34,6 +34,7 @@ class TabViewWork extends StatelessWidget {
                           : hero.work.base,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -62,6 +63,7 @@ class TabViewWork extends StatelessWidget {
                           : hero.work.occupation,
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
