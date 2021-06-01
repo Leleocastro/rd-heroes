@@ -11182,12 +11182,13 @@ this.b=b},
 I5:function I5(){},
 alO:function(){return new T.rX(new S.TU(),P.A(t.K,t.Qu))},
 a0y:function a0y(a){this.b=a},
-ty:function ty(a,b,c,d,e){var _=this
+ty:function ty(a,b,c,d,e,f){var _=this
 _.f=a
-_.dy=b
-_.fx=c
-_.y2=d
-_.a=e},
+_.r=b
+_.dy=c
+_.fx=d
+_.y2=e
+_.a=f},
 TU:function TU(){},
 a4m:function a4m(){},
 xl:function xl(a){var _=this
@@ -36613,15 +36614,16 @@ s.toString
 b.toString
 s=b
 return new M.ve(new K.qy(o,s,C.a1,C.a8,m,m),m)},
-Rv:function(a){var s,r,q=this,p=null,o=q.a,n=o.fx
-n=n.b
-s=n
+Rv:function(a){var s,r,q,p=this,o=null,n=p.a,m=n.fx
+m=m.b
+s=m
 if(s==null)s=C.iH
-n=o.f
-o=o.dy
-r=q.gFl()
-q.a.toString
-return new S.w8(p,p,p,new S.a4i(),p,p,p,p,p,n,p,p,C.zn,q.gWB(),o,p,C.Dz,s,p,r,p,p,C.rc,!1,!1,!1,!1,q.gWh(),!1,p,p,p,new N.jJ(q,t.bT))},
+m=n.f
+r=n.r
+n=n.dy
+q=p.gFl()
+p.a.toString
+return new S.w8(o,o,o,new S.a4i(),o,o,o,o,o,m,o,r,C.zn,p.gWB(),n,o,C.Dz,s,o,q,o,o,C.rc,!1,!1,!1,!1,p.gWh(),!1,o,o,o,new N.jJ(p,t.bT))},
 H:function(a,b){var s=this.Rv(b),r=this.d
 if(r===$)r=H.e(H.w("_heroController"))
 return new K.vh(new S.a4m(),new K.lw(r,s,null),null)}}
@@ -52035,10 +52037,9 @@ gW9:function(){var s,r
 $.bh.toString
 s=$.be().b
 if(s.gz9()!=="/"){$.bh.toString
-s=s.gz9()}else{this.a.toString
-r=$.bh
-r.toString
-s=s.gz9()}return s},
+s=s.gz9()}else{r=this.a.cy
+if(r==null){$.bh.toString
+s=s.gz9()}else s=r}return s},
 aY:function(){var s=this
 s.bl()
 s.Zt()
@@ -61703,7 +61704,7 @@ return"Error: Could not find the correct Provider<"+s.i(0)+"> above this "+r.i(0
 $ick:1}
 Q.Cz.prototype={
 H:function(a,b){var s=null,r=H.c([new T.id(new Y.pu(new Q.Uq(),s,s,s,F.ahf(),T.aqR(),t.Wr),s,s,s,s,t.IR)],t.JD),q=X.aag(s,s,C.W)
-return Y.alX(new S.ty(P.aK(["/",new Q.Ur(),"/hero-detail",new Q.Us()],t.bD,t.sy),"Heroes",q,!1,s),r)}}
+return Y.alX(new S.ty(P.aK(["/",new Q.Ur(),"/hero-detail",new Q.Us()],t.bD,t.sy),"/","Heroes",q,!1,s),r)}}
 Q.Uq.prototype={
 $1:function(a){var s=null
 return new N.ip(P.aC(D.adb(s,s,s,s,s,s,s,s,s).z,!0,t.nK),new P.aW(t.V))},
