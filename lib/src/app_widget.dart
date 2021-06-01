@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           brightness: Brightness.dark,
         ),
+        initialRoute: '/',
         routes: {
           AppRoutes.HOME: (ctx) => HomePage(title: 'Heroes'),
           AppRoutes.HERO_DETAIL: (ctx) => HeroDetailPage(),
